@@ -12,14 +12,14 @@ body{
 }
 
 #ip{
-    font-size:72px;
+    font-size:32px;
     font-weight:bold;
     margin:20px;
 }
 
 button{
     padding:10px 20px;
-    font-size:86px;
+    font-size:16px;
     background:#2d89ef;
     color:white;
     border:none;
@@ -41,7 +41,11 @@ button:hover{
 
 <body>
 
+<h1>Meu IP é:</h1>
 
+<div id="ip">Carregando...</div>
+
+<button onclick="copiarIP()">Copiar IP</button>
 
 <div id="msg"></div>
 
@@ -64,12 +68,4 @@ function copiarIP(){
 </script>
 
 </body>
-
 </html>
-
-
-
-
-
-
-

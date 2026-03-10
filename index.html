@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+<meta charset="UTF-8">
+<title>Mostrar IP</title>
+
+<style>
+body{
+    font-family: Arial;
+    text-align:center;
+    margin-top:100px;
+}
+
+#ip{
+    font-size:32px;
+    font-weight:bold;
+    margin:20px;
+}
+
+button{
+    padding:10px 20px;
+    font-size:16px;
+    background:#2d89ef;
+    color:white;
+    border:none;
+    border-radius:5px;
+    cursor:pointer;
+}
+
+button:hover{
+    background:#1b5fbf;
+}
+
+#msg{
+    margin-top:10px;
+    color:green;
+}
+</style>
+
+</head>
+
+<body>
+
+<h1>Meu IP é:</h1>
+
+<div id="ip">Carregando...</div>
+
+<button onclick="copiarIP()">Copiar IP</button>
+
+<div id="msg"></div>
+
+<script>
+
+let ipUsuario = "";
+
+fetch("https://api.ipify.org?format=json")
+.then(response => response.json())
+.then(data => {
+    ipUsuario = data.ip;
+    document.getElementById("ip").innerText = ipUsuario;
+});
+
+function copiarIP(){
+    navigator.clipboard.writeText(ipUsuario);
+    document.getElementById("msg").innerText = "IP copiado!";
+}
+
+</script>
+
+</body>
+</html>
